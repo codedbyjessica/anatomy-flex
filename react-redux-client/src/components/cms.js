@@ -88,7 +88,6 @@ class CMS extends React.Component{
 	}
 
 	render(){
-
 		return (
 			<div className="cms-container">
 				<div>all dem muskles</div>
