@@ -13,8 +13,11 @@ class App extends Component {
     return (
       <Provider store={store}>
         <div>
-          hellos dis my app pg ye
+          <header>header</header>
+          <div className="main">
           <Router history={history} routes={routes} />
+          </div>
+          <footer>footer</footer>
         </div>
       </Provider>
     );

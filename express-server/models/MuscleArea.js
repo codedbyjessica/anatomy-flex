@@ -3,7 +3,8 @@ const Schema = mongoose.Schema;
 
 const muscleAreaSchema = new Schema({
 	name: String,
-	areaId: Number
+	areaId: Number,
+	isDeleted: Boolean
 });
 
 module.exports = mongoose.model("MuscleArea", muscleAreaSchema)

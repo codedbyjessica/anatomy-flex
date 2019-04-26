@@ -58,3 +58,43 @@ export function addMuscle(values, onSuccess, onFailure) {
             });
     }
 }
+
+export function editMuscle(item, onSuccess, onFailure) {
+    return (dispatch) => {
+        return axios.put(`${ROOT_URL}/${item._id}`, item)
+            .then(response => {
+                dispatch({
+                    type: REDUX_ACTION_CONSTANTS.EDIT_MUSCLE,
+                    data: response.data
+                })
+                if (onSuccess) {
+                    onSuccess(response.data)
+                }
+            })
+            .catch(error => {
+                if (onFailure && error.data) {
+                    onFailure(error.data)
+                }
+            });
+    }
+}
+
+export function deleteMuscle(id, onSuccess, onFailure) {
+    return (dispatch) => {
+        return axios.delete(`${ROOT_URL}/${id}`)
+            .then(response => {
+                dispatch({
+                    type: REDUX_ACTION_CONSTANTS.DELETE_MUSCLE,
+                    data: response.data
+                })
+                if (onSuccess) {
+                    onSuccess(response.data)
+                }
+            })
+            .catch(error => {
+                if (onFailure && error.data) {
+                    onFailure(error.data)
+                }
+            });
+    }
+}

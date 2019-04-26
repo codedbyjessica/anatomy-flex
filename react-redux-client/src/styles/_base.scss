@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: $page-width;
+    margin: 0 auto;
+}
+
+header, footer {
+    text-align: center;
+    padding: $spacing-regular;
+}
+
+button {
+    border: none;
+    padding: 16px 32px;
+    border-radius: $border-radius;
+    background: $brand-color-primary;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    &:hover {
+        background: darken($brand-color-primary, 10%);
+    }
+    &:focus {
+      outline: none;
+    }
+  }

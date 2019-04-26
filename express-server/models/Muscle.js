@@ -1,19 +1,43 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-// this is what a pet is
 const muscleSchema = new Schema({
-	name: String,
-	displayName: String,
-	origin: String,
-	insertion: String,
-	nerve: String,
-	function: String,
+	name: {
+		type: String,
+		required: true
+	},
+	displayName:  {
+		type: String,
+		required: true
+	},
+	origin:  {
+		type: String,
+		required: true
+	},
+	insertion:  {
+		type: String,
+		required: true
+	},
+	nerve:  {
+		type: String,
+		required: true
+	},
+	function:  {
+		type: String,
+		required: true
+	},
 	class: {
 		type: String,
 		default: "muscle"
 	},
-	group: String
+	group:  {
+		type: String,
+		required: true
+	},
+	isDeleted: {
+		type: Boolean,
+		default: false
+	}
 });
 
 module.exports = mongoose.model("Muscle", muscleSchema)

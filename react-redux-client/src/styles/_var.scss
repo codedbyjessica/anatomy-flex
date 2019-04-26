@@ -1,0 +1,17 @@
+$spacing-xs: 4px;
+$spacing-small: 8px;
+$spacing-regular: 24px;
+$spacing-large: 36px;
+
+$border-radius: 4px;
+
+$page-width: 960px;
+
+$copy-color-primary: #333333;
+
+$brand-color-primary: grey;
+$brand-color-secondary: lightgrey;
+
+@mixin desktop { @media (min-width: 1024px) { @content; } }
+@mixin tablet  { @media (max-width: 1023px) and (min-width: 481px) { @content; } }
+@mixin mobile  { @media (max-width: 480px) { @content; } }
