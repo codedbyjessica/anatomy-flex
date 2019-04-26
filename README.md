@@ -5,5 +5,5 @@ $ mongod
 /express-server
 $ nodemon app.js
 
-$react-redux-client
+/react-redux-client
 $ npm start
