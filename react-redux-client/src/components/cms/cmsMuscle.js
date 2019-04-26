@@ -57,11 +57,7 @@ class MuscleCMS extends React.Component{
 		this.props.editMuscle(values)
 	}
 
-	handleRenderMuscleItem(obj) {
-		let deleted = "no";
-		if (obj.isDeleted) {
-			deleted = "yes";
-		}
+	renderMuscleItem(obj) {
  		return (
 			<div>
 				<div className="cms-item-label">{obj._id}</div>
@@ -76,7 +72,7 @@ class MuscleCMS extends React.Component{
 		)
 	}
 
-	handleRenderMuscles() {
+	renderMuscles() {
 		const muscles = this.props.muscles;
 		console.log("muscle structure example", muscles[0])
 		let muscleGroups = muscles.map(muscle => muscle.group);
@@ -108,7 +104,7 @@ class MuscleCMS extends React.Component{
 						<div className="cms-item-label">function</div>
 					</div>
 					<div className="cms-items-container">
-						{group.muscles.filter(muscle => !muscle.isDeleted).map((muscle, i) => <div className="cms-item" key={`muscle-${i}`}>{this.handleRenderMuscleItem(muscle)}</div>)}
+						{group.muscles.filter(muscle => !muscle.isDeleted).map((muscle, i) => <div className="cms-item" key={`muscle-${i}`}>{this.renderMuscleItem(muscle)}</div>)}
 					</div>
 				</div>)
 				}
@@ -117,9 +113,8 @@ class MuscleCMS extends React.Component{
 		)
 	}
 
-	handleRenderDeletedMuscles() {
+	renderDeletedMuscles() {
 		const muscles = this.props.muscles;
-		console.log(muscles);
 		return(
 			<div className="cms-group-item container-deleted">
 				<h3>Deleted</h3>
@@ -134,7 +129,7 @@ class MuscleCMS extends React.Component{
 				<div className="cms-items-container">
 				{muscles.filter(muscle => muscle.isDeleted).map((muscle, i) => {
 					return (
-					<div className="cms-item" key={`muscle-${i}`}>{this.handleRenderMuscleItem(muscle)}</div>)}
+					<div className="cms-item" key={`muscle-${i}`}>{this.renderMuscleItem(muscle)}</div>)}
 					)
 				}
 				</div>
@@ -142,7 +137,7 @@ class MuscleCMS extends React.Component{
 		)
 	}
 
-	handleRenderForm() {
+	renderForm() {
 		return (
 			<div className="cms-form-container">
 			<h3>Add Item</h3>
@@ -158,9 +153,9 @@ class MuscleCMS extends React.Component{
 		return (
 			<div className="cms-container container">
 				<h1>Muscles</h1>
-				{this.handleRenderMuscles()}
-				{this.handleRenderDeletedMuscles()}
-				{this.handleRenderForm()}
+				{this.renderMuscles()}
+				{this.renderDeletedMuscles()}
+				{this.renderForm()}
 			</div> 
 		)
 	}

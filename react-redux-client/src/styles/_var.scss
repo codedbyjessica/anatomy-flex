@@ -1,5 +1,5 @@
 $spacing-xs: 4px;
-$spacing-small: 8px;
+$spacing-small: 12px;
 $spacing-regular: 24px;
 $spacing-large: 36px;
 
@@ -7,10 +7,25 @@ $border-radius: 4px;
 
 $page-width: 960px;
 
-$copy-color-primary: #333333;
+$copy-color-primary: #3E474F;
+$copy-color-highlight: #2B457B;
 
-$brand-color-primary: grey;
-$brand-color-secondary: lightgrey;
+$background-color-primary: #EDEFF0;
+$background-color-highlight: #f8f7fc;
+
+$brand-color-primary: #4864a0;
+$brand-color-secondary: #327ebc;
+$brand-color-tertiary: #30826C;
+
+$brand-color-light-primary:#cee2ff;
+$brand-color-light-secondary: lighten($brand-color-secondary, 20%);
+$brand-color-light-tertiary: #c9f2e3;
+
+$warning-color: #9B3A5A;
+$warning-color-light: #ffe2e2;
+$background-color-warning: #ffeded;
+
+
 
 @mixin desktop { @media (min-width: 1024px) { @content; } }
 @mixin tablet  { @media (max-width: 1023px) and (min-width: 481px) { @content; } }

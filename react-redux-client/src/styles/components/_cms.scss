@@ -1,4 +1,5 @@
 .cms-container {
+    font-size: 1.3rem;
     h3 {
         text-transform: capitalize;
         padding: $spacing-small;
@@ -14,37 +15,16 @@
         // flex-wrap: wrap;
     }
     .cms-item {
-        &:nth-of-type(2n) {
-            background: #f3f3f3;
-        }
-        // width: calc(25% - 12px);
-        // border: thin solid grey;
-
-        // @include desktop {
-        //     &:nth-of-type(4n+1) {
-        //         margin-left: 0;
-        //     }
-        //     &:nth-of-type(4n+4) {
-        //         margin-right: 0;
-        //     }
+        border-top: 1px solid $brand-color-light-primary;
+        // &:nth-of-type(2n) {
+        //     background: $background-color-highlight;
         // }
-        // @include tablet {
-        //     width: calc(50% - 8px);
-        //     &:nth-of-type(2n+2) {
-        //         margin-right: 0;
-        //     }
-        //     &:nth-of-type(2n+1) {
-        //         margin-left: 0;
-        //     }
-        // }
-        // @include mobile {
-        //     width: 100%;
-        // }
-
     }
     .cms-item-container-legend {
-        background: $brand-color-primary;
-        color: white;
+        // background: $brand-color-primary;
+        color: $brand-color-primary;
+        font-weight: bold;
+        text-transform: uppercase;
     }
     .cms-item-label {
         width: calc(16.66% - 10px);
@@ -69,19 +49,29 @@
         width: 30px;
     }
     .container-deleted {
-        background: lightpink;
-    }
-    .cms-form-container {
-        background: $brand-color-secondary;
-    }
-    form {
-        padding: $spacing-small;
-        label {
-            width: 60px;
-            display: inline-block;
+        background: $background-color-warning;
+        h3 {
+            color: $warning-color;
         }
-        button {
-            margin-top: $spacing-small;
+        .cms-item-container-legend {
+            color: $warning-color;
+        }
+        .cms-item {
+            border-color: $warning-color;
+        }
+    }
+
+    .cms-form-container {
+        background: $background-color-highlight;
+        form {
+            padding: $spacing-small;
+            label {
+                width: 60px;
+                display: inline-block;
+            }
+            button {
+                margin-top: $spacing-small;
+            }
         }
     }
 }
