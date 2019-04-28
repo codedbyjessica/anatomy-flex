@@ -2,19 +2,27 @@
     box-sizing: border-box;
 }
 
+body{ 
+    background: $background-color-primary;
+}
+
 .container {
-    max-width: $page-width;
-    margin: 0 auto;
-}
-
-header, footer {
-    text-align: center;
     padding: $spacing-regular;
+    h1 {
+        padding-bottom: $spacing-regular;
+        text-align: left;
+    }
 }
 
-button {
+a {
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+button, .button {
+    display: inline-block;
     border: none;
-    padding: 16px 32px;
+    padding: 8px 20px;
     border-radius: $border-radius;
     background: $brand-color-primary;
     color: white;
@@ -26,4 +34,79 @@ button {
     &:focus {
       outline: none;
     }
+}
+.button-light {
+    background: $background-color-primary;
+    color: $copy-color-primary;
+    &:hover {
+        background: darken($background-color-primary, 10%);
+    }
+}
+
+.button-extra-light {
+    background: white;
+    color: $copy-color-primary;
+    &:hover {
+        background: darken(white, 10%);
+    }
+}
+
+
+  .content {
+      display: flex;
+  }
+
+  .main {
+      width: calc(100% - #{$side-menu-width-desktop});
+  }
+
+
+  header {
+      background: $brand-color-primary;
+      color: white;
+      font-size: 2rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      display: flex;
+      padding: $spacing-regular;
+      letter-spacing: 0.1rem;
+      a {
+          color: white;
+          padding: $spacing-regular;
+      }
+      .header-logo {
+          width: calc(#{$side-menu-width-desktop} - #{$spacing-regular} + 4px);
+          font-size: 12px;
+      }
+      .header-main-menu {
+          width: 50%;
+      }
+      .header-user-menu {
+          width: calc(50% - 100px);
+          text-align: right;
+          a:last-of-type {
+              padding-right: 0;
+          }
+      }
+  }
+
+  .sidemenu {
+      background: $copy-color-primary;
+      color: white;
+      width: $side-menu-width-desktop;
+      font-size: 18px;
+      padding-top: $spacing-xl;
+      ul {
+          list-style-type: none;
+          padding: 0;
+          margin: 0;
+          a {
+              color: white;
+              display: block;
+              padding: $spacing-small calc(#{$spacing-small}*2);
+              &:hover {
+                  background: lighten($copy-color-primary, 10%)
+              }
+          }
+      }
   }

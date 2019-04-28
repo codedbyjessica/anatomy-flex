@@ -1,7 +1,9 @@
 import React from "react";
 
 export default function SvgGeneralAnteriorMuscle() {
-    return <svg version="1.1" x="0px" y="0px"
+    return <div>
+        <h1>Superior Anterior Muscles</h1>
+        <svg version="1.1" x="0px" y="0px"
     width="250px" height="600px" viewBox="0 0 250 600" enableBackground="new 0 0 250 600">
 
         <g className="general-anterior-muscle-base">
@@ -317,4 +319,5 @@ export default function SvgGeneralAnteriorMuscle() {
             c-5.21-6.186-8.863-9.847-9.384-13.987C76.601,246.566,76.093,229.638,78.602,232.63z"/>
     </g>
     </svg>
+    </div>
 }

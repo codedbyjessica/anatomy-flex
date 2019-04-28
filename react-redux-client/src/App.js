@@ -5,19 +5,26 @@ import PropTypes from 'prop-types';
 import { syncHistoryWithStore } from 'react-router-redux';
 import configureStore from './store/configureStore';
 import routes from './routes';
+import Header from './components/global/header';
+import SideMenu from './components/global/sideMenu';
 const store = configureStore();
 const history = syncHistoryWithStore(browserHistory, store);
 
 class App extends Component {
   render() {
+    const isCMS = window.location.pathname.indexOf('cms') > 0;
     return (
       <Provider store={store}>
         <div>
-          <header>header</header>
-          <div className="main">
-          <Router history={history} routes={routes} />
+          <Header />
+          <div className="content">
+            {isCMS ? '' : <SideMenu />}
+            <div className="main">
+              <Router history={history} routes={routes} />
+
+              <footer> 2019 AnatomyFlex . All rights reserved.</footer>
+            </div>
           </div>
-          <footer>footer</footer>
         </div>
       </Provider>
     );
