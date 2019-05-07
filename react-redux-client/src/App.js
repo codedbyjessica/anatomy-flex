@@ -20,6 +20,7 @@ class App extends Component {
           <div className="content">
             {isCMS ? '' : <SideMenu />}
             <div className="main">
+              <a href="/superior-anterior-muscles/learn">Superior Anterior Muscles - learn</a>
               <Router history={history} routes={routes} />
 
               <footer> 2019 AnatomyFlex . All rights reserved.</footer>

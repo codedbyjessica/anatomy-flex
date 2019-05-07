@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {fetchMuscles} from '../../actions/cmsActions';
+import {fetchMuscles} from '../../actions/cmsMuscleActions';
 import { connect } from 'react-redux';
 import SvgGeneralAnteriorMuscle from '../svg/svg.generalAnteriorMuscles'
 import {withRouter} from 'react-router';

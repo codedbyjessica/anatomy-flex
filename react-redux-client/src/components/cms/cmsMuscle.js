@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {fetchMuscles, addMuscle, deleteMuscle, editMuscle} from '../../actions/cmsActions';
+import {fetchMuscles, addMuscle, deleteMuscle, editMuscle} from '../../actions/cmsMuscleActions';
 import { connect } from 'react-redux';
 import {withRouter} from 'react-router';
 

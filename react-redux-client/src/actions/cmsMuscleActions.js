@@ -10,6 +10,7 @@ export function fetchMuscles(onSuccess, onFailure) {
                     type: REDUX_ACTION_CONSTANTS.FETCH_MUSCLES,
                     data: response.data
                 })
+                console.log('muskle', response.data, onSuccess)
                 if (onSuccess) {
                     onSuccess(response.data)
                 }

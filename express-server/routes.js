@@ -3,6 +3,7 @@ const router = express.Router();
 
 var bodyParser = require('body-parser');
 var Muscle = require('./models/Muscle');
+var Module = require('./models/Module');
 var MuscleArea = require('./models/MuscleArea');
 
 router.get('/', function(req, res){
@@ -39,7 +40,7 @@ router.route("/muscles")
         })
     })
 
-    router.route("/muscles/new")
+router.route("/muscles/new")
     .post((req, res) => {
         const body = req.body;
         const muscle = new Muscle(body);
@@ -113,5 +114,107 @@ router.route("/muscles/:muscle_id")
                 });
         })
     });
+
+    
+//modules
+
+router.route("/modules")
+    .get((req, res) => {
+        const query = req.query;
+        const module = Module.find()
+        if(query.order_by === "name"){
+            muscle.sort({
+                name: 1
+            });
+        }
+        module.exec((err, docs) => {
+            if(err !== null) {
+                res.status(400)
+                    .send({
+                        error: err
+                    });
+                return;
+            }
+            res.status(200)
+                .send(docs)
+        })
+    })
+
+
+router.route("/modules/new")
+    .post((req, res) => {
+        const body = req.body;
+        const module = new Module(body);
+
+        module.save((err, doc) => {
+            if (err !== null){
+                res.status(400)
+                    .send({
+                        error: err
+                    });
+                return;
+            }
+            res.status(200)
+                .send(doc);
+        })
+    });    
+
+// the specific muscle
+router.route("/modules/:module_id")
+    .get((req,res) => {
+        const params = req.params;
+        // find gives an array of docs, findOne gives one
+        Module.findOne({_id:params.module_id}, (err, doc) => {
+            if (err !==null) {
+                res.status(400)
+                .send({
+                    error: err
+                });
+                return;
+            }
+            res.status(200)
+                .send(doc);
+        });
+    })
+    .put((req,res) => {
+        Module.findById(req.params.module_id, (err, doc) => {
+            if(err ==!null){
+                res.status(400)
+                    .send({
+                        error: err
+                    })
+                return;
+            }
+            Object.assign(doc, req.body,{score: doc.score += 1}); 
+            doc.save((err, savedDoc) => {
+                if (err !==null) {
+                    res.status(400)
+                    .send({
+                        error: err
+                    });
+                    return;
+                }
+                res.status(200)
+                    .send(savedDoc);
+            })
+            //kinda like combining two objs, can also overwrite
+        })
+    })
+    .delete((req,res) => {
+        Module.findByIdAndRemove(req.params.module_id, (err, doc) => {
+            if(err !== null) {
+                res.status(400)
+                    .send({
+                        error: err
+                    });
+                return;
+            }
+            res.status(200)
+                .send({
+                    success: "Item deleted"
+                });
+        })
+    });
+
 
     export default router;
